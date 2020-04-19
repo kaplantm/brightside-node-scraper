@@ -3,7 +3,7 @@ const cheerio = require("cheerio");
 const mrBrightsideTitleVariations = ["mr brightside", "mr. brightside"];
 const mrBrightsideArtistVariations = ["killers", "the killers"];
 
-function getPositionFromHTML(html) {
+function getPositionFromHTML(html, admin, app) {
   let position = undefined;
 
   try {
@@ -21,10 +21,27 @@ function getPositionFromHTML(html) {
         position = $(".position", tableRow).text();
       }
     });
+    handleFirebaseUpdate(position, admin, app);
     return { position };
   } catch (error) {
     return { error };
   }
+}
+
+async function handleFirebaseUpdate(position, admin, app) {
+  const db = admin.database();
+  const ref = db.ref();
+
+  ref.set({
+    mr_brightside: {
+      position,
+      check_time: new Date().getTime(),
+    },
+  });
+
+  app.delete();
+
+  return;
 }
 
 module.exports = {
