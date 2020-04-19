@@ -1,0 +1,18 @@
+{
+  "name": "brightside-scraper-node",
+  "version": "1.0.0",
+  "description": "https://firebase.google.com/docs/web/setup?authuser=0",
+  "main": "handler.js",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cheerio": "^1.0.0-rc.3",
+    "firebase": "^7.14.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

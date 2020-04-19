@@ -6,25 +6,31 @@ const { getPositionFromHTML } = require("./helpers");
 
 const serviceAccount = require("./serviceAccountKey.json");
 
+const app = admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://mrbrightside-f7929.firebaseio.com",
+});
+
 module.exports.updateBrightsideInFirebase = async (event) => {
-  const app = admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://mrbrightside-f7929.firebaseio.com",
-  });
   return request("https://www.officialcharts.com/charts/")
     .then(({ data }) => {
       const result = getPositionFromHTML(data, admin, app);
-      console.log({ result });
       return {
         statusCode: 200,
-        body: result,
+        headers: {},
+        body: JSON.stringify(result),
+        isBase64Encoded: false,
       };
     })
     .catch((error) => ({
-      statusCode: 500,
       body: {
-        message: "An error occurred.",
-        error,
+        statusCode: 200,
+        headers: {},
+        body: JSON.stringify({
+          message: "An error occurred.",
+          error,
+        }),
+        isBase64Encoded: false,
       },
     }));
 };

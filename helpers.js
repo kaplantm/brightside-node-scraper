@@ -30,13 +30,11 @@ function getPositionFromHTML(html, admin, app) {
 
 async function handleFirebaseUpdate(position, admin, app) {
   const db = admin.database();
-  const ref = db.ref();
+  const ref = db.ref("songs/" + "killers_mrbrightside");
 
-  ref.set({
-    mr_brightside: {
-      position,
-      check_time: new Date().getTime(),
-    },
+  await ref.set({
+    position,
+    updated_at: new Date().getTime(),
   });
 
   app.delete();
