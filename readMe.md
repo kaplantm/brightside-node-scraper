@@ -7,6 +7,8 @@ https://firebase.google.com/docs/auth/?authuser=0 (enabled anonymous auth)
 export GOOGLE_APPLICATION_CREDENTIALS=serviceAccountKey.json
 export GOOGLE_APPLICATION_CREDENTIALS="/Users/tonikaplan/brightside-scraper-node/serviceAccountKey.json"
 
+export ENV=dev
+
 Serverless: Stack update finished...
 Service Information
 service: brightside-scraper-node
