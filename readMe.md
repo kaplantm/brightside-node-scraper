@@ -29,3 +29,7 @@ Serverless: Run the "serverless" command to setup monitoring, troubleshooting an
 brightside-scraper-node-dev-updateBrightsideInFirebase
 
 https://1uqnvk9yy3.execute-api.us-east-1.amazonaws.com/api/charts/singles?artist=Killers&title=Mr%20Brightside
+
+https://dev.to/paulchiu/how-to-upload-json-data-to-aws-s3-with-nodejs-aws-sdk-and-typescript-53di
+
+serverless invoke local --function updateBrightsideData
