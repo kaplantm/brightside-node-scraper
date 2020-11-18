@@ -4,7 +4,7 @@ const mrBrightsideTitleVariations = ["mr brightside", "mr. brightside"];
 const mrBrightsideArtistVariations = ["killers", "the killers"];
 
 function getPositionFromHTML(html) {
-  let position = undefined;
+  let position = null;
 
   const $ = cheerio.load(html);
   const tableRows = $("tr");
