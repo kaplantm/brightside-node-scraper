@@ -1,3 +1,9 @@
+
+html {
+  display: flex;
+  min-height: 100%;
+  align-items: center;
+}
 body,
 html {
   margin: 0;
