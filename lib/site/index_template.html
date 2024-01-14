@@ -54,7 +54,7 @@
       const init = () => {
         // Localizing date
         const updatedAtElement = document.getElementById("updated_at_template");
-        updatedAtElement.innerHTML = `Updated: ${new Date(raw_data.updatedAt).toLocaleString()}`;
+        updatedAtElement.innerHTML = `Updated: ${new Date(raw_data.updatedAt).toLocaleDateString()}`;
       };
       init();
     </script>
