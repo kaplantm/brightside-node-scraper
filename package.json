@@ -4,10 +4,9 @@
   "description": "https://firebase.google.com/docs/web/setup?authuser=0",
   "main": "handler.js",
   "dependencies": {
-    "aws-sdk": "^2.659.0",
+    "@aws-sdk/client-s3": "^3.490.0",
     "axios": "^0.19.2"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -23,6 +23,7 @@ service: brightside-scraper-node
 provider:
   name: aws
   runtime: nodejs18.x
+  stage: prod
 
 functions:
   handleUpdateBrightsideData:
