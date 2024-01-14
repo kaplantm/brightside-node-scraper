@@ -14,23 +14,7 @@
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <link rel="canonical" href="https://ismrbrightsidestillintheukcharts.com/" />
   </head>
-  <script>
-    
-    const raw_data = JSON.parse('generated_data_json')
 
-    const handleOnLoad = () => {
-      const answerElement = document.getElementById("answer_template");
-      answerElement.innerHTML = raw_data.position ? `Yes, #${raw_data.position}` : `No =(`;
-
-      const updatedAtElement = document.getElementById("updated_at_template");
-      updatedAtElement.innerHTML = `Updated: ${new Date(raw_data.updatedAt).toLocaleString()}`;
-
-      const weeksInTop100Element = document.getElementById("total_weeks_template");
-      weeksInTop100Element.innerHTML = `${raw_data.weeksInTop100}+`;
-    };
-
-    window.onload = handleOnLoad;
-  </script>
   <body>
     <div class="wrapper">
       <main>
@@ -38,14 +22,14 @@
 
         <section>
           <div id="results-container">
-            <p id="answer_template">Yes, #43</p>
-            <a id="updated_at_template" href="https://www.officialcharts.com/charts/singles-chart/" target="_blank"
-              >Updated: 1/13/2024, 9:02:49 PM</a
-            >
+            <p><span id="answer_template"></span></p>
+            <a href="https://www.officialcharts.com/charts/singles-chart/" target="_blank">
+              <span id="updated_at_template"></span>
+            </a>
           </div>
 
           Mr. Brightside was released by The Killers in 2004 and has spent
-          <span id="total_weeks_template">300+</span> weeks in the UK Official Charts.
+          <span id="total_weeks_template"></span> weeks in the UK Official Charts.
         </section>
 
         <aside class="youtube-container">
@@ -64,5 +48,15 @@
         >
       </footer>
     </div>
+    <script>
+      const raw_data = JSON.parse('generated_data_json');
+
+      const init = () => {
+        // Localizing date
+        const updatedAtElement = document.getElementById("updated_at_template");
+        updatedAtElement.innerHTML = `Updated: ${new Date(raw_data.updatedAt).toLocaleString()}`;
+      };
+      init();
+    </script>
   </body>
 </html>
