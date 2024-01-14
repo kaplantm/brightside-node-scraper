@@ -22,8 +22,8 @@ service: brightside-scraper-node
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs18.x
 
 functions:
-  updateBrightsideData:
-    handler: handler.updateBrightsideData
+  handleUpdateBrightsideData:
+    handler: handler.handleUpdateBrightsideData
